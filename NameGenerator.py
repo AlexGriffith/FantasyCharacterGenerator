@@ -3,15 +3,20 @@ import random
 # General lists of syllables, prefixes, suffixes, races, characteristics, and plot hooks to pull from. Can be expanded
 # or items removed as preferred.
 syllables = ['Arc', 'Bar', 'Can', 'Caz', 'Cha', 'Ale', 'Bor', 'Ben', 'Dar', 'Dag', 'Del', 'Dyn', 'Een', 'Est', 'Fan',
-             'Fes', 'Fly', 'Gha', 'Gre', 'Gri', 'Sha', 'Kha', 'Vor', 'Var', 'Kaz', 'Par', 'Zen', 'Zish', 'Kol', 'Phy',
+             'Fay', 'Fly', 'Ga', 'Gre', 'Gri', 'Sha', 'Kha', 'Vor', 'Var', 'Kaz', 'Par', 'Zen', 'Zish', 'Kol', 'Phy',
              'Pin', 'Pal', 'Tar', 'Get', 'For', 'Spa', 'Shi', 'Sho', 'Ken', 'Tay', '\'Ik', '\'Cha', 'Zar', 'Ry', 'As',
              'co', 'sa', 'an', 'le', 'ta', 'sa', 'se', 'sey', 'lie', 'las', 'or', 'chi', 'kay', 'er', 'tey', 'no', 'na',
-             'ram', 'ro', 'sh', 'ich', 'vos', 'yi', 'quo', 'wri', 'wro', 'ooo', 'ash', 'kie', 'ie', 'po', '\'Ka',
-             '\'ii', ' vas', 'ha', 'mi', 'che', 'elle', 'hea', 'thea', '\'Xor', 'by', 'big', 'sal', 'uh', 'ju', 'wer',
+             'ram', 'ro', 'sh', 'ich', 'yi', 'quo', 'wri', 'wro', 'ooo', 'ash', 'kie', 'ie', 'po', 'win', 'ter', 'sky',
+             'ha', 'mi', 'che', 'elle', 'hea', 'thea', '\'Xor', 'by', 'big', 'sal', 'uh', 'ju', 'wer', 'wren', 'lyn',
              'a', 'tor', 'bjorn', 'mald', 'vald', 'tyn', 'er', 're', 'col', 'cur', 'choo', 'try', 'raja', 'weed', 'que',
              'fios', 'stal', 'gro', 'op', '\'Za', 'puri', 'yus', 'Wel', 'Wes', 'bile', 'ste', 'ven', 'ash', 'Bre',
              'nt', 'Ian', 'Jen', 'Kev', 'in', 'Rach', 'Sara', 'Kel', 'Pow', 'acha', 'sas', 'ex', 'al', 'bi', 'lo', 'li',
-             'ti', 'to', 'ri', 'aes', 'de', 'di', ' von ', 'ley', 'ren', 'tare', 'lee', 'hai']
+             'ti', 'to', 'ri', 'aes', 'de', 'di', 'ley', 'ren', 'tare', 'lee', 'hai', 'beau', 'chad', 'cain', 'rose',
+             'dean', 'jack', 'daw', 'jude', 'mar', 'rex', 'ajax', 'pa', 'par', 'pan', 'anne', 'blue', 'eve', 'hope',
+             'live', 'fern', 'Rae']
+
+surname_prefixes = ['De', 'Von', 'Vos', 'Der', 'Del', 'Abu', 'Du', 'Fitz', 'A', 'Le', 'La', 'Ost', 'Ter', 'Van',
+                    'Mala', 'zu', 'war', 'vest', 'Oz', 'Opp', 'Stor', 'Bet', 'Bar', 'Aust', 'Al', 'Ap', 'Ab', 'Vas']
 
 prefixes = ['Doctor', 'Sergent', 'Captain', 'Lieutenant', 'Elder', 'professor', 'Earl', 'Duke', 'Sir', 'Squire',
             'Blacksmith', 'Seven fingers', 'One-eye', 'Poor', 'Tyrannical', 'Scribe', 'Bear fucker', 'Elder', 'Sultan',
@@ -71,7 +76,8 @@ characteristic_personality = ['happy', 'sad', 'angry', 'nervous', 'joyous', 'qui
 
 plot_verbs = ['deliver', 'retrieve', 'save', 'find', 'catch', 'destroy', 'steal/kidnap', 'hide', 'protect', 'betray',
               'bartender for', 'trade', 'teach', 'bribe', 'blackmail', 'spy on', 'sell [to]', 'adjudicate for',
-              'create a fake of', 'gamble against', 'eating contest with', 'pass a secret message to', 'get information on',
+              'create a fake of', 'gamble against', 'eating contest with', 'pass a secret message to',
+              'get information on',
               'protect', 'escort', 'track down', 'exploit', 'investigate']
 
 plot_nouns = ['sister', 'father', 'child', 'pet', 'dinner', 'pair of pants', 'heirloom', 'weapon', 'enemy', 'jester',
@@ -79,8 +85,8 @@ plot_nouns = ['sister', 'father', 'child', 'pet', 'dinner', 'pair of pants', 'he
               'bartender', 'mimic', 'trapped citizen', 'farmer', 'tinker', 'shipwreck', 'knight', 'wild animal',
               'local noble', 'goblin tribe', 'thief', 'beautiful woman', 'cursed artifact', 'sailor', 'merchant',
               'environmental disaster', 'adventuring party', 'musician', 'pair of twins', 'sheet of music', 'wolf pack',
-              'angry mob', 'family', 'cult', 'religious group', 'demon', 'beggar', 'town guard', 'werewolf', 'demi-lich',
-              'bandits', 'union', 'meteor', 'handsome stranger']
+              'angry mob', 'family', 'cult', 'religious group', 'demon', 'beggar', 'town guard', 'werewolf',
+              'demi-lich', 'group of bandits', 'meteor', 'handsome stranger']
 
 plot_additions = ['before midnight', 'in the dark', 'in public', 'in disguise', 'from a jail', 'while under attack',
                   'tomorrow', 'with my help', 'without your weapons', 'underwater', 'with an alchemist\'s help',
@@ -95,8 +101,9 @@ plot_additions = ['before midnight', 'in the dark', 'in public', 'in disguise', 
 
 
 class Character:
-    def __init__(self, syllable_count=2, prefix=None, name=None, suffix=None, race=None, traits=None, plot_hook=None):
-        self.name = make_name(syllable_count)
+    def __init__(self, syllable_count_first=2, syllable_count_last=3, prefix=None, name=None, suffix=None, race=None,
+                 traits=None, plot_hook=None):
+        self.name = make_name(syllable_count_first, syllable_count_last)
         self.prefix = random.choice(prefixes)
         self.suffix = random.choice(suffixes)
         self.race = random.choice(races)
@@ -105,7 +112,7 @@ class Character:
         self.plot_hook = generate_plot_hook()
 
     def character_output(self):
-        print("%-20s %-20s %-30s %-15s %-20s %-20s %-20s %-50s" % (
+        print("%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % (
             self.prefix.title(), self.name.title(), self.suffix.title(), self.race.title(), self.traits[0].title(),
             self.traits[1].title(), self.personality.title(), self.plot_hook.title()))
 
@@ -121,41 +128,63 @@ def generate_plot_hook():
     return plot_hook
 
 
-def make_name(syllable_count):
+def make_name(syllable_count_first, syllable_count_last):
     name = ""
-    for i in range(syllable_count):
-        name += random.choice(syllables)
+    name += ''.join(random.sample(syllables, syllable_count_first))
+    name += " "
+    if random.randint(0, 4) == 0:
+        name += random.choice(surname_prefixes)
+        syllable_count_last -= 1
+    name += ''.join(random.sample(syllables, syllable_count_last))
     return name
 
 
 def user_interface():
     while True:  # loop forever until user exits
+        syllable_count_first = 2
+        syllable_count_last = 3
+        character_count = 10
         try:
             # Syllables per name
-            print('How many syllables would you like? :')
-            syllable_count = int(input())
+            print('How many syllables would you like in the first name? (Default 2):')
+            i = input()
+            if int(i) >= 1:
+                syllable_count_first = int(i)
+
+            print('How many syllables would you like in the last name? (Default 3):')
+            i = input()
+            if int(i) >= 0:
+                syllable_count_last = int(i)
 
             # How many characters to create
-            print('How many characters would you like? :')
-            character_count = int(input())
+            print('How many characters would you like? (Default 10):')
+            i = input()
+            if int(i) >= 1:
+                character_count = int(i)
 
-            # Column Headers
-            print(
-                "\n\n%-20s %-20s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name", "Suffix", "Race", "Trait 1",
-                                                                         "Trait 2", "Personality", "Plot Hook"))
-            print("-" * 195)
-            # Creating the parameterized characters
-            for i in range(character_count):
-                c = Character(syllable_count)
-                c.character_output()
+            # generating and printing the characters
+            create_characters(character_count, syllable_count_first, syllable_count_last)
 
         except ValueError as e:
-            print('Uh oh! Try entering only positive integers when prompted for a number.')
+            print('No custom input. Defaults used.')
+            create_characters(character_count, syllable_count_first, syllable_count_last)
 
         print('\nWould you like to continue? (Enter "Y" or "1" to continue) :')
         repeat = input()
         if repeat not in ('Y', 'y', 'yes', 'YES', 'Yes', '1'):
             break
+
+
+def create_characters(character_count, syllable_count_first, syllable_count_last):
+    # Column Headers
+    print(
+        "\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name", "Suffix", "Race", "Trait 1",
+                                                                 "Trait 2", "Personality", "Plot Hook"))
+    print("-" * 200)
+    # Creating the parameterized characters
+    for i in range(character_count):
+        c = Character(syllable_count_first, syllable_count_last)
+        c.character_output()
 
 
 user_interface()
