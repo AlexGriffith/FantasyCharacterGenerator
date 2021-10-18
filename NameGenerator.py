@@ -9,9 +9,9 @@ syllables = ['Arc', 'Bar', 'Can', 'Caz', 'Cha', 'Ale', 'Bor', 'Ben', 'Dar', 'Dag
              'ram', 'ro', 'sh', 'ich', 'vos', 'yi', 'quo', 'wri', 'wro', 'ooo', 'ash', 'kie', 'ie', 'po', '\'Ka',
              '\'ii', ' vas', 'ha', 'mi', 'che', 'elle', 'hea', 'thea', '\'Xor', 'by', 'big', 'sal', 'uh', 'ju', 'wer',
              'a', 'tor', 'bjorn', 'mald', 'vald', 'tyn', 'er', 're', 'col', 'cur', 'choo', 'try', 'raja', 'weed', 'que',
-             'fios', 'stal', 'gro', 'op', 'Za\'Za', 'puri', 'yus', 'Wel', 'Wes', 'bile', 'ste', 'ven', 'ash', 'Bre',
+             'fios', 'stal', 'gro', 'op', '\'Za', 'puri', 'yus', 'Wel', 'Wes', 'bile', 'ste', 'ven', 'ash', 'Bre',
              'nt', 'Ian', 'Jen', 'Kev', 'in', 'Rach', 'Sara', 'Kel', 'Pow', 'acha', 'sas', 'ex', 'al', 'bi', 'lo', 'li',
-             'ti', 'to', 'ri', 'aes', 'de', 'di', ' von ']
+             'ti', 'to', 'ri', 'aes', 'de', 'di', ' von ', 'ley', 'ren', 'tare', 'lee', 'hai']
 
 prefixes = ['Doctor', 'Sergent', 'Captain', 'Lieutenant', 'Elder', 'professor', 'Earl', 'Duke', 'Sir', 'Squire',
             'Blacksmith', 'Seven fingers', 'One-eye', 'Poor', 'Tyrannical', 'Scribe', 'Bear fucker', 'Elder', 'Sultan',
@@ -96,7 +96,7 @@ plot_additions = ['before midnight', 'in the dark', 'in public', 'in disguise', 
 
 class Character:
     def __init__(self, syllable_count=2, prefix=None, name=None, suffix=None, race=None, traits=None, plot_hook=None):
-        self.name = make_name(syllable_count, False, False)
+        self.name = make_name(syllable_count)
         self.prefix = random.choice(prefixes)
         self.suffix = random.choice(suffixes)
         self.race = random.choice(races)
@@ -121,14 +121,10 @@ def generate_plot_hook():
     return plot_hook
 
 
-def make_name(syllable_count, prefix, suffix):
+def make_name(syllable_count):
     name = ""
-    if prefix:
-        name += random.choice(prefixes) + ' '
     for i in range(syllable_count):
         name += random.choice(syllables)
-    if suffix:
-        name += ' ' + random.choice(suffixes)
     return name
 
 
