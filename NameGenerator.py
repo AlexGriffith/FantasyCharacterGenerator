@@ -74,10 +74,10 @@ plot_verbs = ['deliver', 'retrieve', 'save', 'find', 'catch', 'destroy', 'steal/
               'create a fake of', 'gamble against', 'eating contest with', 'pass a secret message to', 'get information on',
               'protect', 'escort', 'track down', 'exploit', 'investigate']
 
-plot_nouns = ['sister', 'father', 'child', 'pet', 'dinner', 'pants', 'heirloom', 'weapon', 'enemy', 'cursed artifact',
+plot_nouns = ['sister', 'father', 'child', 'pet', 'dinner', 'pair of pants', 'heirloom', 'weapon', 'enemy', 'jester',
               'cart', 'melon', 'bear', 'tree', 'ghost', 'monster', 'grandmother', 'wizard', 'skeleton', 'monster',
               'bartender', 'mimic', 'trapped citizen', 'farmer', 'tinker', 'shipwreck', 'knight', 'wild animal',
-              'local noble', 'goblin tribe', 'thief', 'beautiful woman', 'jester', 'sailor', 'merchant',
+              'local noble', 'goblin tribe', 'thief', 'beautiful woman', 'cursed artifact', 'sailor', 'merchant',
               'environmental disaster', 'adventuring party', 'musician', 'pair of twins', 'sheet of music', 'wolf pack',
               'angry mob', 'family', 'cult', 'religious group', 'demon', 'beggar', 'town guard', 'werewolf', 'demi-lich',
               'bandits', 'union', 'meteor', 'handsome stranger']
