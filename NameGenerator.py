@@ -1,23 +1,27 @@
 import random
 
-# General lists of syllables, prefixes, suffixes, races, characteristics, and plot hooks to pull from. Can be expanded
+# General lists to follow of syllables, prefixes, suffixes, races, characteristics, and plot hooks to pull from. Can be expanded
 # or items removed as preferred.
+
+# Syllables that names are constructed from
 syllables = ['Arc', 'Bar', 'Can', 'Caz', 'Cha', 'Ale', 'Bor', 'Ben', 'Dar', 'Dag', 'Del', 'Dyn', 'Een', 'Est', 'Fan',
              'Fay', 'Fly', 'Ga', 'Gre', 'Gri', 'Sha', 'Kha', 'Vor', 'Var', 'Kaz', 'Par', 'Zen', 'Zish', 'Kol', 'Phy',
              'Pin', 'Pal', 'Tar', 'Get', 'For', 'Spa', 'Shi', 'Sho', 'Ken', 'Tay', '\'Ik', '\'Cha', 'Zar', 'Ry', 'As',
              'co', 'sa', 'an', 'le', 'ta', 'sa', 'se', 'sey', 'lie', 'las', 'or', 'chi', 'kay', 'er', 'tey', 'no', 'na',
              'ram', 'ro', 'sh', 'ich', 'yi', 'quo', 'wri', 'wro', 'ooo', 'ash', 'kie', 'ie', 'po', 'win', 'ter', 'sky',
              'ha', 'mi', 'che', 'elle', 'hea', 'thea', '\'Xor', 'by', 'big', 'sal', 'uh', 'ju', 'wer', 'wren', 'lyn',
-             'a', 'tor', 'bjorn', 'mald', 'vald', 'tyn', 'er', 're', 'col', 'cur', 'choo', 'try', 'raja', 'weed', 'que',
+             'a', 'tor', 'bjorn', 'mald', 'vald', 'tyn', 'er', 're', 'col', 'cur', 'cho', 'try', 'raja', 'weed', 'que',
              'fios', 'stal', 'gro', 'op', '\'Za', 'puri', 'yus', 'Wel', 'Wes', 'bile', 'ste', 'ven', 'ash', 'Bre',
-             'nt', 'Ian', 'Jen', 'Kev', 'in', 'Rach', 'Sara', 'Kel', 'Pow', 'acha', 'sas', 'ex', 'al', 'bi', 'lo', 'li',
+             'net', 'Ian', 'Jen', 'Kev', 'in', 'Rach', 'Sara', 'Kel', 'Pow', 'acha', 'sas', 'ex', 'al', 'bi', 'lo', 'li',
              'ti', 'to', 'ri', 'aes', 'de', 'di', 'ley', 'ren', 'tare', 'lee', 'hai', 'beau', 'chad', 'cain', 'rose',
              'dean', 'jack', 'daw', 'jude', 'mar', 'rex', 'ajax', 'pa', 'par', 'pan', 'anne', 'blue', 'eve', 'hope',
              'live', 'fern', 'Rae']
 
-surname_prefixes = ['De', 'Von', 'Vos', 'Der', 'Del', 'Abu', 'Du', 'Fitz', 'A', 'Le', 'La', 'Ost', 'Ter', 'Van',
+# An increased chance for surnames to start with one of these syllables
+surname_prefixes = ['De', 'Von ', 'Vos', 'Der', 'Del', 'Abu', 'Du ', 'Fitz', 'A', 'Le ', 'La', 'Ost', 'Ter', 'Van',
                     'Mala', 'zu', 'war', 'vest', 'Oz', 'Opp', 'Stor', 'Bet', 'Bar', 'Aust', 'Al', 'Ap', 'Ab', 'Vas']
 
+# Name prefixes and titles
 prefixes = ['Doctor', 'Sergent', 'Captain', 'Lieutenant', 'Elder', 'professor', 'Earl', 'Duke', 'Sir', 'Squire',
             'Blacksmith', 'Seven fingers', 'One-eye', 'Poor', 'Tyrannical', 'Scribe', 'Bear fucker', 'Elder', 'Sultan',
             'Lady', 'Lord', 'Your Grace', 'His Excellency', 'Goodman', 'Goodwife', 'Midwife', 'Bishop', 'Cardinal',
@@ -27,33 +31,31 @@ prefixes = ['Doctor', 'Sergent', 'Captain', 'Lieutenant', 'Elder', 'professor', 
             'Toasty', 'Badger-catcher', 'Tiny-hands', 'Immortal', 'Guardian', 'monk', 'druid', 'Thief',
             'Lord of Outlaws', 'King of Thieves', 'Sourfaced', 'Angry', 'Sleepy']
 
+# Name suffixes and titles
 suffixes = ['the strange', 'the lost', 'the shepherd', 'the blessed', 'the holy', 'the ungodly', 'the golden',
             'the corrupt', 'the dirty', 'the vile', 'the kind', 'the courageous', 'the righteous', 'the sane',
             'the insane', 'the fury', 'the pale', 'the victorious', 'the farmer', 'the clean', 'Senior', 'junior',
-            'of the golden shoes', 'the beauty', 'the consort', 'the handsome',
+            'of the golden shoes', 'the beauty', 'the consort', 'the handsome', 'the cagey', 'the swift', 'piss-pants',
             'the sweet', 'of the travellers', 'the wanderer', 'the fool', 'the heirophant', 'the sun', 'the moon',
-            'the magician', 'the devil', 'the tall', 'the short', 'the nine toed', 'the dwarf', 'the elf',
-            'the halfling', 'the half-orc', 'the ogre', 'piss-pants', 'the rider', 'the swift', 'the cagey',
-            'strangler',
+            'the magician', 'the devil', 'the tall', 'the short', 'the nine toed', 'strangler', 'the rider', 'the ogre',
             'the weak', 'the strong', 'the pasty', 'of the night', 'of the north', 'of the south', 'of the east',
-            'of the west', 'the outsider', 'the champion', 'of Fate',
-            'of the swamp', 'of the forests', 'Mossbeard', 'Terror-fist', 'the Coward', 'the gentle',
-            'the tender lover',
+            'of the west', 'the outsider', 'the champion', 'of Fate', 'the tender lover', 'who got lost for five days',
+            'of the swamp', 'of the forests', 'Mossbeard', 'Terror-fist', 'the Coward', 'the gentle', 'the boring'
             'the baker', 'the alchemist', 'the merchant', 'the Invisible', 'Cowardsbane', 'Orcbane', 'Trollbane',
             'Dragonlover', 'Swiftfoot', 'Highjumper', 'Smith', 'the Cobbler', 'The Cooper', 'the stableboy', 'the bad',
             'The radish', 'the corpse', 'the Tasty', 'the cook', 'the Innkeeper', 'the wise', 'the powerhungry',
-            'one-sock', 'of mud', 'the bastard', 'the wealthy', 'the ignoble', 'the wicked',
-            'who got lost for five days',
+            'one-sock', 'of mud', 'the bastard', 'the wealthy', 'the ignoble', 'the wicked', 'the petrified',
             'the hungry', 'slippery fingers', 'pickpocket', 'King of Dirt', 'the Headsman', '"Sniff-my-fingers"',
             'the mad mage', 'the paladin', 'the bard', 'the warlock', 'the barbarian', 'the sorcerer', 'the painter',
-            'the one-day lich', 'the scam artist', 'chicken legs', 'McCoy', 'the terrified', 'the petrified',
-            'the boring']
+            'the one-day lich', 'the scam artist', 'chicken legs', 'McCoy', 'the terrified']
 
-races = ['human', 'elf', 'dwarf', 'half-elf', 'half-orc', 'gnome', 'half-giant', "goblin", "ghost",
-         "minotaur", "lizardfolk", "talking animal", "unknown", "shapeshifter", "halfling", "tiefling",
-         "human", "elf", "dwarf", "half-elf", "half-dwarf", "dragonborn", "satyr", "fairy", "genasi", "goliath",
-         "human", "elf", "dwarf", "human", "half-elf", "kobold", "orc", "tabaxi", "tortle", "centaur"]
+# Races, with an increased chance of human, elf, and dwarf. To generate only humans, simply remove all other items.
+races = ['human', 'elf', "dwarf", "human", "elf", 'dwarf', 'half-elf', 'half-orc', 'gnome', 'half-giant', "goblin",
+         "minotaur", "lizardfolk", "talking animal", "unknown", "shapeshifter", "halfling", "tiefling", "ghost",
+         "half-elf", "half-dwarf", "dragonborn", "satyr", "fairy", "genasi", "goliath", "tortle", "centaur",
+         "kobold", "orc", "tabaxi"]
 
+# Physical characteristics that would be noticed on first glance or interaction
 characteristics_physical = ['tall', 'short', 'blue eyes', 'green eyes', 'brown eyes', 'tanned skin', 'long black cloak',
                             'twitchy', 'one-handed', 'limping', 'smiling', 'missing teeth', 'eye-patch', 'kind eyes',
                             'knee high boots', 'wearing a sword', 'hunched over', 'hood pulled up', 'barefoot', 'blind',
@@ -62,6 +64,7 @@ characteristics_physical = ['tall', 'short', 'blue eyes', 'green eyes', 'brown e
                             'pale', 'bleeding', 'diseased', 'in a loincloth', 'carrying tools', 'holding gold coins',
                             'has a talking crow', 'strong accent', 'dark skin', 'squinting at you', 'unblinking']
 
+# Personality traits that would learn upon further interaction with the character
 characteristic_personality = ['happy', 'sad', 'angry', 'nervous', 'joyous', 'quick temper', 'forgiving', 'friendly',
                               'alcoholic', 'pacifist', 'aggressive', 'scared', 'terrified', 'fearless', 'alert',
                               'active', 'agreeable', 'caring', 'confident', 'daring', 'curious', 'creative', 'decisive',
@@ -74,12 +77,13 @@ characteristic_personality = ['happy', 'sad', 'angry', 'nervous', 'joyous', 'qui
                               'sociable',
                               'zealous', 'youthful', 'sweet', 'understanding', 'suave', 'spontaneous', 'tidy']
 
+# Verbs used to generate plot hooks
 plot_verbs = ['deliver', 'retrieve', 'save', 'find', 'catch', 'destroy', 'steal/kidnap', 'hide', 'protect', 'betray',
               'bartender for', 'trade', 'teach', 'bribe', 'blackmail', 'spy on', 'sell [to]', 'adjudicate for',
               'create a fake of', 'gamble against', 'eating contest with', 'pass a secret message to',
-              'get information on',
-              'protect', 'escort', 'track down', 'exploit', 'investigate']
+              'get information on', 'protect', 'escort', 'track down', 'exploit', 'investigate']
 
+# Nouns used to generate plot hooks
 plot_nouns = ['sister', 'father', 'child', 'pet', 'dinner', 'pair of pants', 'heirloom', 'weapon', 'enemy', 'jester',
               'cart', 'melon', 'bear', 'tree', 'ghost', 'monster', 'grandmother', 'wizard', 'skeleton', 'monster',
               'bartender', 'mimic', 'trapped citizen', 'farmer', 'tinker', 'shipwreck', 'knight', 'wild animal',
@@ -88,6 +92,7 @@ plot_nouns = ['sister', 'father', 'child', 'pet', 'dinner', 'pair of pants', 'he
               'angry mob', 'family', 'cult', 'religious group', 'demon', 'beggar', 'town guard', 'werewolf',
               'demi-lich', 'group of bandits', 'meteor', 'handsome stranger']
 
+# Additional clauses that can add intrigue, challenge, or flavour to generated plot hooks
 plot_additions = ['before midnight', 'in the dark', 'in public', 'in disguise', 'from a jail', 'while under attack',
                   'tomorrow', 'with my help', 'without your weapons', 'underwater', 'with an alchemist\'s help',
                   'without magic', 'while being pursued', 'stealthily', 'lawfully', 'during a fancy ball',
@@ -101,8 +106,23 @@ plot_additions = ['before midnight', 'in the dark', 'in public', 'in disguise', 
 
 
 class Character:
+    """
+    Character class that holds information about a specific generated character.
+    """
     def __init__(self, syllable_count_first=2, syllable_count_last=3, prefix=None, name=None, suffix=None, race=None,
-                 traits=None, plot_hook=None):
+                 traits=None, personality=None, plot_hook=None):
+        """
+        init method that calls for creation of the specific details.
+        :param syllable_count_first: how many syllables go into the first name
+        :param syllable_count_last: how many syllables go into the last name
+        :param prefix: a prefix for the name
+        :param name: a first and last name, with specified syllable counts in each
+        :param suffix: a suffix for the name
+        :param race: a randomly chosen race
+        :param traits: two physical traits
+        :param personality: a personality trait
+        :param plot_hook: a potential plot line with a verb, noun, and additional clause formatted into a sentence
+        """
         self.name = make_name(syllable_count_first, syllable_count_last)
         self.prefix = random.choice(prefixes)
         self.suffix = random.choice(suffixes)
@@ -112,12 +132,21 @@ class Character:
         self.plot_hook = generate_plot_hook()
 
     def character_output(self):
+        """
+        Outputs a formatted string containing all important character details
+        :return: A formatted string
+        """
         print("%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % (
             self.prefix.title(), self.name.title(), self.suffix.title(), self.race.title(), self.traits[0].title(),
             self.traits[1].title(), self.personality.title(), self.plot_hook.title()))
 
 
 def generate_plot_hook():
+    """
+    Creates a plot hook using a verb, noun, and additional clause.
+    Generates simple sentences with the structure "[verb] a[n] [noun] [additional clause]
+    :return: a string containing the plot hook
+    """
     plot_hook = random.choice(plot_verbs)
     plot_noun = random.choice(plot_nouns)
     plot_addition = random.choice(plot_additions)
@@ -128,7 +157,15 @@ def generate_plot_hook():
     return plot_hook
 
 
-def make_name(syllable_count_first, syllable_count_last):
+def make_name(syllable_count_first=3, syllable_count_last=3):
+    """
+    Creates a first and last name using random syllables.
+    Syllable counts can be specified when calling the method. Defaults to 2 and 3 respectively.
+    Increased chance of starting the last name with a surname prefix, for more natural sounding names
+    :param syllable_count_first:
+    :param syllable_count_last:
+    :return: A string containing the name.
+    """
     name = ""
     name += ''.join(random.sample(syllables, syllable_count_first))
     name += " "
@@ -140,6 +177,10 @@ def make_name(syllable_count_first, syllable_count_last):
 
 
 def user_interface():
+    """
+    A user interface loop that takes some basic inputs for character generation,
+    and then calls for creation and printing of those characters in a formatted table.
+    """
     while True:  # loop forever until user exits
         syllable_count_first = 2
         syllable_count_last = 3
@@ -176,15 +217,24 @@ def user_interface():
 
 
 def create_characters(character_count, syllable_count_first, syllable_count_last):
+    """
+    Creates a table of generated characters, based on a set of parameters.
+    Formats with spacing, column headers, and separators every 10 rows.
+    :param character_count: how many characters to generate
+    :param syllable_count_first: how many syllables the first names should be
+    :param syllable_count_last:  how many syllables the last names should be
+    """
     # Column Headers
     print(
         "\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name", "Suffix", "Race", "Trait 1",
                                                                  "Trait 2", "Personality", "Plot Hook"))
-    print("-" * 200)
     # Creating the parameterized characters
-    for i in range(character_count):
+    for idx in range(character_count):
+        if idx % 10 == 0:
+            print("-" * 200)
         c = Character(syllable_count_first, syllable_count_last)
         c.character_output()
+
 
 
 user_interface()
