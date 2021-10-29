@@ -1,4 +1,5 @@
 import random
+import tkinter as tk
 
 # General lists to follow of syllables, prefixes, suffixes, races, characteristics, and plot hooks to pull from. Can be expanded
 # or items removed as preferred.
@@ -10,12 +11,12 @@ syllables = ['Arc', 'Bar', 'Can', 'Caz', 'Cha', 'Ale', 'Bor', 'Ben', 'Dar', 'Dag
              'co', 'sa', 'an', 'le', 'ta', 'sa', 'se', 'sey', 'lie', 'las', 'or', 'chi', 'kay', 'er', 'tey', 'no', 'na',
              'ram', 'ro', 'sh', 'ich', 'yi', 'quo', 'wri', 'wro', 'ooo', 'ash', 'kie', 'ie', 'po', 'win', 'ter', 'sky',
              'ha', 'mi', 'che', 'elle', 'hea', 'thea', '\'Xor', 'by', 'big', 'sal', 'uh', 'ju', 'wer', 'wren', 'lyn',
-             'a', 'tor', 'bjorn', 'mald', 'vald', 'tyn', 'er', 're', 'col', 'cur', 'cho', 'try', 'raja', 'weed', 'que',
+             'a', 'tor', 'bjorn', 'mald', 'vald', 'tyn', 'er', 're', 'col', 'cur', 'cho', 'try', 'raja', 'que',
              'fios', 'stal', 'gro', 'op', '\'Za', 'puri', 'yus', 'Wel', 'Wes', 'bile', 'ste', 'ven', 'ash', 'Bre',
-             'net', 'Ian', 'Jen', 'Kev', 'in', 'Rach', 'Sara', 'Kel', 'Pow', 'acha', 'sas', 'ex', 'al', 'bi', 'lo', 'li',
+             'net', 'Ian', 'Jen', 'Kev', 'in', 'Rach', 'Sara', 'Kel', 'Pow', 'acha', 'sas', 'ex', 'al', 'bi', 'lo',
              'ti', 'to', 'ri', 'aes', 'de', 'di', 'ley', 'ren', 'tare', 'lee', 'hai', 'beau', 'chad', 'cain', 'rose',
              'dean', 'jack', 'daw', 'jude', 'mar', 'rex', 'ajax', 'pa', 'par', 'pan', 'anne', 'blue', 'eve', 'hope',
-             'live', 'fern', 'Rae']
+             'live', 'fern', 'Rae', 'li']
 
 # An increased chance for surnames to start with one of these syllables
 surname_prefixes = ['De', 'Von ', 'Vos', 'Der', 'Del', 'Abu', 'Du ', 'Fitz', 'A', 'Le ', 'La', 'Ost', 'Ter', 'Van',
@@ -41,7 +42,8 @@ suffixes = ['the strange', 'the lost', 'the shepherd', 'the blessed', 'the holy'
             'the weak', 'the strong', 'the pasty', 'of the night', 'of the north', 'of the south', 'of the east',
             'of the west', 'the outsider', 'the champion', 'of Fate', 'the tender lover', 'who got lost for five days',
             'of the swamp', 'of the forests', 'Mossbeard', 'Terror-fist', 'the Coward', 'the gentle', 'the boring'
-            'the baker', 'the alchemist', 'the merchant', 'the Invisible', 'Cowardsbane', 'Orcbane', 'Trollbane',
+                                                                                                      'the baker',
+            'the alchemist', 'the merchant', 'the Invisible', 'Cowardsbane', 'Orcbane', 'Trollbane',
             'Dragonlover', 'Swiftfoot', 'Highjumper', 'Smith', 'the Cobbler', 'The Cooper', 'the stableboy', 'the bad',
             'The radish', 'the corpse', 'the Tasty', 'the cook', 'the Innkeeper', 'the wise', 'the powerhungry',
             'one-sock', 'of mud', 'the bastard', 'the wealthy', 'the ignoble', 'the wicked', 'the petrified',
@@ -109,6 +111,7 @@ class Character:
     """
     Character class that holds information about a specific generated character.
     """
+
     def __init__(self, syllable_count_first=2, syllable_count_last=3, prefix=None, name=None, suffix=None, race=None,
                  traits=None, personality=None, plot_hook=None):
         """
@@ -136,9 +139,79 @@ class Character:
         Outputs a formatted string containing all important character details
         :return: A formatted string
         """
-        print("%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % (
+        return ("%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % (
             self.prefix.title(), self.name.title(), self.suffix.title(), self.race.title(), self.traits[0].title(),
             self.traits[1].title(), self.personality.title(), self.plot_hook.title()))
+
+
+class Graphical_UI(tk.Frame):
+    """
+    Class that generates a GUI for easier use and entering of options.
+    """
+
+    def __init__(self, master=None):
+        super().__init__(master)
+
+        window.title("NPC Generator")
+
+        self.frame = tk.Frame(window, bg='#BBBBBB', bd=1, padx=2, pady=2)
+        self.frame = tk.Frame(window, padx=10, pady=10)
+
+        self.character_count = tk.IntVar(self.frame)
+        self.syllable_count_first = tk.IntVar(self.frame)
+        self.syllable_count_last = tk.IntVar(self.frame)
+        self.npc_display = tk.Listbox(self.frame, height=20, width=100, bd=0, font='Courier')
+
+        window.bind('<Return>', lambda event: self.display_npcs())
+
+        self.create_widgets()
+
+    def create_widgets(self):
+        self.frame.grid(row=10, column=3, columnspan=3, rowspan=10)
+        v_scrollbar = tk.Scrollbar(self.frame, orient=tk.VERTICAL)
+        h_scrollbar = tk.Scrollbar(self.frame, orient=tk.HORIZONTAL)
+        self.npc_display.config(yscrollcommand=v_scrollbar.set)
+        self.npc_display.config(xscrollcommand=h_scrollbar.set)
+
+        v_scrollbar.config(command=self.npc_display.yview)
+        h_scrollbar.config(command=self.npc_display.xview)
+        v_scrollbar.grid(row=10, column=3, sticky=tk.NS)
+        h_scrollbar.grid(row=11, column=0, sticky=tk.EW, columnspan=3)
+        self.npc_display.grid(row=10, column=0, columnspan=3, padx=5, pady=5)
+
+        tk.Label(self.frame, text="How Many Names to Generate: ", padx=5, pady=5).grid(row=0, column=0)
+        tk.Label(self.frame, text="Syllables in First Names: ", padx=5, pady=5).grid(row=1, column=0)
+        tk.Label(self.frame, text="Syllables in Last Names: ", padx=5, pady=5).grid(row=2, column=0)
+
+        tk.Entry(self.frame, text="Name Count", textvariable=self.character_count).grid(row=0, column=1)
+        tk.Entry(self.frame, text="Syllable First Name", textvariable=self.syllable_count_first).grid(row=1, column=1)
+        tk.Entry(self.frame, text="Syllable Last Name", textvariable=self.syllable_count_last).grid(row=2, column=1)
+
+        self.character_count.set(10)
+        self.syllable_count_first.set(2)
+        self.syllable_count_last.set(3)
+
+        tk.Button(self.frame, text="Generate", padx=5, pady=5,
+                  command=lambda: self.display_npcs()).grid(row=4, column=0, columnspan=2)
+
+    def clear_list(self):
+        """ clear the display Listbox"""
+        self.npc_display.delete(0, tk.END)
+
+    def display_npcs(self):
+        self.clear_list()
+        self.npc_display.insert(tk.END, ("\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name",
+                                                                                                  "Suffix", "Race",
+                                                                                                  "Trait 1", "Trait 2",
+                                                                                                  "Personality",
+                                                                                                  "Plot Hook")))
+        self.npc_display.insert(tk.END, "")
+        npcs = create_characters(character_count=self.character_count.get(),
+                                 syllable_count_first=self.syllable_count_first.get(),
+                                 syllable_count_last=self.syllable_count_last.get())
+
+        for npc in npcs:
+            self.npc_display.insert(tk.END, npc.character_output())
 
 
 def generate_plot_hook():
@@ -225,16 +298,22 @@ def create_characters(character_count, syllable_count_first, syllable_count_last
     :param syllable_count_last:  how many syllables the last names should be
     """
     # Column Headers
-    print(
-        "\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name", "Suffix", "Race", "Trait 1",
-                                                                 "Trait 2", "Personality", "Plot Hook"))
+    # print(
+    #     "\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name", "Suffix", "Race", "Trait 1",
+    #                                                              "Trait 2", "Personality", "Plot Hook"))
+
+    npcs = []
     # Creating the parameterized characters
     for idx in range(character_count):
-        if idx % 10 == 0:
-            print("-" * 200)
+        # if idx % 10 == 0:
+        #     print("-" * 200)
         c = Character(syllable_count_first, syllable_count_last)
+        npcs.insert(idx, c)
         c.character_output()
+    return npcs
 
 
-
-user_interface()
+window = tk.Tk()
+gui = Graphical_UI(master=window)
+gui.mainloop()
+# user_interface()
