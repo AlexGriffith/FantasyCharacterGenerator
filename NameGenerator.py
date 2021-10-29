@@ -150,11 +150,15 @@ class Graphical_UI(tk.Frame):
     """
 
     def __init__(self, master=None):
+        """
+        Creates all the initial parameters for the listbox.
+        Binds the 'Return' key to generating a new set of NPC's based on the current input parameters.
+        :param master: the root of the window
+        """
         super().__init__(master)
 
         window.title("NPC Generator")
 
-        self.frame = tk.Frame(window, bg='#BBBBBB', bd=1, padx=2, pady=2)
         self.frame = tk.Frame(window, padx=10, pady=10)
 
         self.character_count = tk.IntVar(self.frame)
@@ -167,6 +171,9 @@ class Graphical_UI(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
+        """
+        creates all the widgets and buttons in the window.
+        """
         self.frame.grid(row=10, column=3, columnspan=3, rowspan=10)
         v_scrollbar = tk.Scrollbar(self.frame, orient=tk.VERTICAL)
         h_scrollbar = tk.Scrollbar(self.frame, orient=tk.HORIZONTAL)
@@ -199,6 +206,10 @@ class Graphical_UI(tk.Frame):
         self.npc_display.delete(0, tk.END)
 
     def display_npcs(self):
+        """
+        displays a list of npcs in the tkinter listbox
+        :return: nothing
+        """
         self.clear_list()
         self.npc_display.insert(tk.END, ("\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name",
                                                                                                   "Suffix", "Race",
@@ -297,16 +308,10 @@ def create_characters(character_count, syllable_count_first, syllable_count_last
     :param syllable_count_first: how many syllables the first names should be
     :param syllable_count_last:  how many syllables the last names should be
     """
-    # Column Headers
-    # print(
-    #     "\n\n%-20s %-25s %-30s %-15s %-20s %-20s %-20s %-50s" % ("Prefix", "Name", "Suffix", "Race", "Trait 1",
-    #                                                              "Trait 2", "Personality", "Plot Hook"))
-
     npcs = []
     # Creating the parameterized characters
     for idx in range(character_count):
-        # if idx % 10 == 0:
-        #     print("-" * 200)
+
         c = Character(syllable_count_first, syllable_count_last)
         npcs.insert(idx, c)
         c.character_output()
