@@ -1,4 +1,4 @@
-# FantasyCharacterGenerator
+# NPC_Generator
 
 An ultralight character generator for NPC's, with names, nicknames, races, traits, and plot hooks
 Just enter how many syllables you'd like names to be, and how many characters to generate, it does the rest. 
